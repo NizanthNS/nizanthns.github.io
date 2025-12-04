@@ -8,13 +8,6 @@
 @import 'fontawesome-all.min.css';
 @import url('https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900');
 
-/*
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
-// Breakpoints.
 
 	@include breakpoints((
 		default:   (1681px,   null     ),
@@ -26,7 +19,6 @@
 		xxsmall:   (null,     360px    )
 	));
 
-// Mixins.
 
 	@mixin color($p) {
 		@include color-typography($p);
@@ -39,13 +31,11 @@
 		@include color-pagination($p);
 	}
 
-// Base.
 
 	@import 'base/reset';
 	@import 'base/page';
 	@import 'base/typography';
 
-// Component.
 
 	@import 'components/row';
 	@import 'components/box';
@@ -60,7 +50,6 @@
 	@import 'components/table';
 	@import 'components/pagination';
 
-// Layout.
 
 	@import 'layout/wrapper';
 	@import 'layout/intro';
@@ -68,4 +57,5 @@
 	@import 'layout/nav';
 	@import 'layout/main';
 	@import 'layout/footer';
+
 	@import 'layout/navPanel';
