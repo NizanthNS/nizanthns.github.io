@@ -8,7 +8,6 @@
 		$main = $('#main'),
 		$navPanelToggle, $navPanel, $navPanelInner;
 
-	// Breakpoints.
 		breakpoints({
 			default:   ['1681px',   null       ],
 			xlarge:    ['1281px',   '1680px'   ],
@@ -19,10 +18,6 @@
 			xxsmall:   [null,       '360px'    ]
 		});
 
-	/**
-	 * Applies parallax scrolling to an element's background image.
-	 * @return {jQuery} jQuery object.
-	 */
 	$.fn._parallax = function(intensity) {
 
 		var	$window = $(window),
@@ -84,7 +79,6 @@
 				||	browser.mobile)					// Mobile devices
 					off();
 
-			// Enable everywhere else.
 				else {
 
 					breakpoints.on('>large', on);
@@ -104,28 +98,22 @@
 
 	};
 
-	// Play initial animations on page load.
 		$window.on('load', function() {
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
 		});
 
-	// Scrolly.
 		$('.scrolly').scrolly();
 
-	// Background.
 		$wrapper._parallax(0.925);
 
-	// Nav Panel.
 
-		// Toggle.
 			$navPanelToggle = $(
 				'<a href="#navPanel" id="navPanelToggle">Menu</a>'
 			)
 				.appendTo($wrapper);
 
-			// Change toggle styling once we've scrolled past the header.
 				$header.scrollex({
 					bottom: '5vh',
 					enter: function() {
@@ -136,7 +124,6 @@
 					}
 				});
 
-		// Panel.
 			$navPanel = $(
 				'<div id="navPanel">' +
 					'<nav>' +
@@ -156,18 +143,14 @@
 					visibleClass: 'is-navPanel-visible'
 				});
 
-			// Get inner.
 				$navPanelInner = $navPanel.children('nav');
 
-			// Move nav content on breakpoint change.
 				var $navContent = $nav.children();
 
 				breakpoints.on('>medium', function() {
 
-					// NavPanel -> Nav.
 						$navContent.appendTo($nav);
 
-					// Flip icon classes.
 						$nav.find('.icons, .icon')
 							.removeClass('alt');
 
@@ -175,27 +158,22 @@
 
 				breakpoints.on('<=medium', function() {
 
-					// Nav -> NavPanel.
 						$navContent.appendTo($navPanelInner);
 
-					// Flip icon classes.
 						$navPanelInner.find('.icons, .icon')
 							.addClass('alt');
 
 				});
 
-			// Hack: Disable transitions on WP.
 				if (browser.os == 'wp'
 				&&	browser.osVersion < 10)
 					$navPanel
 						.css('transition', 'none');
 
-	// Intro.
 		var $intro = $('#intro');
 
 		if ($intro.length > 0) {
 
-			// Hack: Fix flex min-height on IE.
 				if (browser.name == 'ie') {
 					$window.on('resize.ie-intro-fix', function() {
 
@@ -209,7 +187,6 @@
 					}).trigger('resize.ie-intro-fix');
 				}
 
-			// Hide intro on scroll (> small).
 				breakpoints.on('>small', function() {
 
 					$main.unscrollex();
@@ -228,7 +205,6 @@
 
 				});
 
-			// Hide intro on scroll (<= small).
 				breakpoints.on('<=small', function() {
 
 					$main.unscrollex();
@@ -251,3 +227,4 @@
 
 
 })(jQuery);
+
