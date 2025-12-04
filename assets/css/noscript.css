@@ -1,7 +1,6 @@
 @import url(font-awesome.min.css);
 
 
-/* Wrapper */
 
 	#wrapper {
 		background-color: #212931;
@@ -16,7 +15,6 @@
 			display: none;
 		}
 
-/* Intro */
 
 	body.is-preload #intro {
 		opacity: 1;
